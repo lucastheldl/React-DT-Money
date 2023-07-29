@@ -1,4 +1,4 @@
-import { css, styled } from "styled-components";
+import { styled } from "styled-components";
 
 export const TransactionContainer = styled.main`
   width: 100%;
