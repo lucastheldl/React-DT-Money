@@ -6,6 +6,7 @@ import {
   TransactionType,
   TransactionTypeButton,
 } from "./styles";
+
 import { ArrowCircleDown, ArrowCircleUp, X } from "phosphor-react";
 
 export function NewTransactionModal() {
@@ -20,12 +21,12 @@ export function NewTransactionModal() {
           <input type="number" placeholder="Preço" required />
           <input type="text" placeholder="Categoria" required />
           <TransactionType>
-            <TransactionTypeButton variant="income">
+            <TransactionTypeButton variant="income" value="income">
               <ArrowCircleUp size={24} />
               Entrada
             </TransactionTypeButton>
 
-            <TransactionTypeButton variant="outcome">
+            <TransactionTypeButton variant="outcome" value="outcome">
               <ArrowCircleDown size={24} />
               Saída
             </TransactionTypeButton>
