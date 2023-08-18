@@ -1,29 +1,11 @@
 import { ArrowCircleDown, ArrowCircleUp, CurrencyDollar } from "phosphor-react";
 import { SummaryCard, SummaryContainer } from "./styles";
-import { useContext } from "react";
-import { TransactionContext } from "../../context/TransactionContext";
 import { priceFormatter } from "../../utils/formatter";
+import { useSummary } from "../../hooks/useSummary";
 
 export function Summary() {
-  const { transactions } = useContext(TransactionContext);
+  const summary = useSummary();
 
-  const summary = transactions.reduce(
-    (acc, transaction) => {
-      if (transaction.type === "income") {
-        acc.income += transaction.valor;
-        acc.total += transaction.valor;
-      } else {
-        acc.outcome += transaction.valor;
-        acc.total -= transaction.valor;
-      }
-      return acc;
-    },
-    {
-      income: 0,
-      outcome: 0,
-      total: 0,
-    }
-  );
   return (
     <SummaryContainer>
       <SummaryCard>
