@@ -13,8 +13,8 @@ import * as z from "zod";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 //context
-import { useContext } from "react";
 import { TransactionContext } from "../../../context/TransactionContext";
+import { useContextSelector } from "use-context-selector";
 
 const newTransactionFormSchema = z.object({
   description: z.string(),
@@ -26,7 +26,13 @@ const newTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
 
 export function NewTransactionModal() {
-  const { createTransaction } = useContext(TransactionContext);
+  //the same as the use context but looking to improve performance
+  const createTransaction = useContextSelector(
+    TransactionContext,
+    (context) => {
+      return context.createTransaction;
+    }
+  );
 
   const {
     control,

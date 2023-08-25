@@ -47,6 +47,14 @@
       "type": "income",
       "createdAt": "2023-08-24T23:14:26.616Z",
       "id": 6
+    },
+    {
+      "description": "arte",
+      "category": "venda",
+      "valor": 320,
+      "type": "income",
+      "createdAt": "2023-08-25T20:12:05.351Z",
+      "id": 7
     }
   ]
 }
